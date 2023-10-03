@@ -16,6 +16,6 @@ class TicketVendidoController extends Controller
 
         $ticketVendido = TicketVendido::create($validatedData);
 
-        return response()->json(['message' => 'Ticket vendido creado con éxito', 'data' => $ticketVendido], 201);
+        return response()->json(['message' => 'Ticket vendido creado con exito', 'data' => $ticketVendido], 201);
     }
 }
