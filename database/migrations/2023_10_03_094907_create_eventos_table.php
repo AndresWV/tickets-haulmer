@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('eventos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre_evento');
+            $table->date('fecha');
+            $table->time('hora');
+            $table->string('lugar');
+            $table->decimal('precio', 8, 2);
+            $table->integer('disponibilidad');
+            $table->string('categoria');
+            $table->text('descripcion');
+            $table->string('url_entradas');
             $table->timestamps();
         });
     }
