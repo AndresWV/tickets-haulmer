@@ -7,7 +7,9 @@ use App\Models\TicketVendido;
 class TicketVendidoController extends Controller
 {
     public function index($idUser){
-        $tickets = TicketVendido::where('user_id','like',"%$idUser%")->get();
+        $tickets = TicketVendido::where('user_id','like',"%$idUser%")
+            ->orderBy('created_at','desc')
+            ->get();
         return response()->json($tickets);
     }
     public function store(Request $request)
