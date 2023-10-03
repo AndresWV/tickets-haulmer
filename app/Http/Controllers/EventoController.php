@@ -8,7 +8,7 @@ class EventoController extends Controller
 {
     public function index()
     {
-        $eventos = Evento::all();
+        $eventos = Evento::select('nombre_evento', 'fecha', 'hora', 'precio', 'url_entradas')->get();
         return response()->json($eventos);
     }
 }
