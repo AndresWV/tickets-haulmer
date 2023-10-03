@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/events', 'App\Http\Controllers\EventoController@index');
 Route::get('/event/{name}', 'App\Http\Controllers\EventoController@searchEventName');
+Route::post('/tickets-vendidos', 'App\Http\Controllers\TicketVendidoController@store');
 

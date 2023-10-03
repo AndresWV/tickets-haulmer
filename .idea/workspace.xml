@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f74d8fcb-12df-4a31-9c16-e465116ca39e" name="Changes" comment="" />
+    <list default="true" id="f74d8fcb-12df-4a31-9c16-e465116ca39e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TicketVendidoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TicketVendidoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/TicketVendido.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TicketVendido.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
