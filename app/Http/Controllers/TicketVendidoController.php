@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\TicketVendido;
 class TicketVendidoController extends Controller
 {
+    public function index($idUser){
+        $tickets = TicketVendido::where('user_id','like',"%$idUser%")->get();
+        return response()->json($tickets);
+    }
     public function store(Request $request)
     {
         $validatedData = $request->validate([
