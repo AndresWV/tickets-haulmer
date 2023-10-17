@@ -18,7 +18,7 @@ class EventoFactory extends Factory
     {
 
         return [
-            'nombre_evento' => fake()->domainName(),
+            'nombre_evento' => fake()->sentence(3),
             'fecha' => fake()->date(),
             'hora' => fake()->time(),
             'lugar' => fake()->address(),
