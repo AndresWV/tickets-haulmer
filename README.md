@@ -16,7 +16,7 @@ Primero es necesario instalar Docker y GIT en el equipo, para ello se puede segu
 En caso de ser sistema Windows, primero es necesario instalar WSL2 y luego una distribución de Linux, de preferencia Ubuntu.  Luego
 es necesario seguir los siguientes pasos:
 
-* Clonar el repositorio: `git clone https://github.com/AndresWV/tickets-haulmer.git`
+* Clonar el repositorio: `git clone https://github.com/AndresWV/tickets-haulmer.git`. Observación: es necesario clonar el repositorio dentro de Ubuntu o la distribución que se haya descargado.
 * Ingresar a la carpeta del proyecto: `cd tickets-haulmer`
 * Crear el archivo .env para almacenar las variables de entorno: `cp .env.example .env`
 * Instalar las dependencias de composer: `docker run --rm \
