@@ -1,38 +1,35 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Evento;
 use Illuminate\Http\Request;
 use Throwable;
+
 class EventoController extends Controller
 {
     public function index()
     {
-        try{
+        try {
             $events = Evento::select('nombre_evento', 'fecha', 'hora', 'precio', 'url_entradas')->get();
-            return response()->json($events);
-        }catch (Throwable $e) {
+            return response()->success($events);
+        } catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'server_error',
-                'code' => 500,
-                'data' => []
-            ], 500);
+            return response()->error();
         }
     }
-    public function searchEventName($name){
-        try{
+
+    public function searchEventName($name)
+    {
+        try {
             $events = Evento::where('nombre_evento', 'like', "%$name%")->get();
-            return response()->json($events);
-        }catch (Throwable $e) {
+            return response()->success($events);
+        } catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'server_error',
-                'code' => 500,
-                'data' => []
-            ], 500);
+            return response()->error();
         }
     }
+
     public function store(Request $request)
     {
         try {
@@ -51,17 +48,48 @@ class EventoController extends Controller
                 'url_entradas' => 'required|string|url',
             ]);
 
+
             // Crear un nuevo evento
             $evento = Evento::create($validatedData);
-
-            return response()->json(['message' => 'Evento creado con éxito', 'data' => $evento], 201);
+            return response()->success($evento, 'Evento creado con éxito', 201);
         } catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'Error interno del servidor',
-                'code' => 500,
-                'data' => [],
-            ], 500);
+            return response()->error();
+        }
+    }
+
+    public function update(Evento $evento, Request $request)
+    {
+        try {
+            $data = request()->all();
+            $validatedData = $this->validate($request, [
+                'nombre_evento' => 'required|string',
+                'fecha' => 'required|date',
+                'hora' => 'required|string',
+                'lugar' => 'required|string',
+                'precio' => 'required|numeric',
+                'disponibilidad' => 'required|integer',
+                'categoria' => 'required|string',
+                'descripcion' => 'required|string',
+                'url_entradas' => 'required|string|url',
+            ]);
+            $evento->update($validatedData);
+            return response()->success(null, 'Evento actualizado con éxito');
+        } catch (Throwable $e) {
+            error_log($e->getMessage());
+            return response()->error();
+        }
+    }
+
+
+    public function destroy(Evento $evento)
+    {
+        try {
+            $evento->delete();
+            return response()->success(null, 'Evento eliminado con éxito');
+        } catch (Throwable $e) {
+            error_log($e->getMessage());
+            return response()->error();
         }
     }
 }

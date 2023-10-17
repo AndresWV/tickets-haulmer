@@ -9,4 +9,8 @@ class UsuarioEvento extends Model
 {
     use HasFactory;
     protected $fillable = ['nombre', 'apellido', 'mail', 'password'];
+
+    public function ticketsVendidos(){
+        return $this->hasMany(TicketVendido::class, 'user_id');
+    }
 }
