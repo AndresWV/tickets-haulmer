@@ -53,4 +53,15 @@ class EventoController extends Controller
             return response()->error();
         }
     }
+
+    public function destroy(Evento $evento)
+    {
+        try {
+            $evento->delete();
+            return response()->success(null, 'Evento eliminado con éxito');
+        } catch (Throwable $e) {
+            error_log($e->getMessage());
+            return response()->error();
+        }
+    }
 }

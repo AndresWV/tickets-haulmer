@@ -17,11 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/events', 'App\Http\Controllers\EventoController@index');
-Route::get('/event/{name}', 'App\Http\Controllers\EventoController@searchEventName');
-Route::post('/tickets-vendidos', 'App\Http\Controllers\TicketVendidoController@store');
-Route::post('/nuevo-evento', 'App\Http\Controllers\EventoController@store');
-Route::get('/orders/{usuario}', 'App\Http\Controllers\TicketVendidoController@index');
-Route::get('/users', 'App\Http\Controllers\UsuarioEventoController@index');
-Route::post('/createUser', 'App\Http\Controllers\UsuarioEventoController@store');
+
+require __DIR__ . '/ticketVendidos.php';
+require __DIR__ . '/usuariosEvento.php';
+require __DIR__ . '/eventos.php';
+
+
 
