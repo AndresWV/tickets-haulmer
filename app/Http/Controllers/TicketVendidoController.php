@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UsuarioEvento;
 use Illuminate\Http\Request;
 use App\Models\TicketVendido;
 use Throwable;
 
 class TicketVendidoController extends Controller
 {
-    public function index($idUser){
+    public function index(UsuarioEvento $usuario){
 
         try{
-            $tickets = TicketVendido::where('user_id','like',"%$idUser%")
+            $tickets = $usuario->ticketsVendidos()
                 ->orderBy('created_at','desc')
                 ->get();
             return response()->success($tickets);

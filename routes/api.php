@@ -21,7 +21,7 @@ Route::get('/events', 'App\Http\Controllers\EventoController@index');
 Route::get('/event/{name}', 'App\Http\Controllers\EventoController@searchEventName');
 Route::post('/tickets-vendidos', 'App\Http\Controllers\TicketVendidoController@store');
 Route::post('/nuevo-evento', 'App\Http\Controllers\EventoController@store');
-Route::get('/orders/{idUser}', 'App\Http\Controllers\TicketVendidoController@index');
+Route::get('/orders/{usuario}', 'App\Http\Controllers\TicketVendidoController@index');
 Route::get('/users', 'App\Http\Controllers\UsuarioEventoController@index');
 Route::post('/createUser', 'App\Http\Controllers\UsuarioEventoController@store');
 
