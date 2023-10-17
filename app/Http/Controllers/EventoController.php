@@ -10,27 +10,19 @@ class EventoController extends Controller
     {
         try{
             $events = Evento::select('nombre_evento', 'fecha', 'hora', 'precio', 'url_entradas')->get();
-            return response()->json($events);
+            return response()->success($events);
         }catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'server_error',
-                'code' => 500,
-                'data' => []
-            ], 500);
+            return response()->error();
         }
     }
     public function searchEventName($name){
         try{
             $events = Evento::where('nombre_evento', 'like', "%$name%")->get();
-            return response()->json($events);
+            return response()->success($events);
         }catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'server_error',
-                'code' => 500,
-                'data' => []
-            ], 500);
+            return response()->error();
         }
     }
     public function store(Request $request)
@@ -51,17 +43,14 @@ class EventoController extends Controller
                 'url_entradas' => 'required|string|url',
             ]);
 
+
+
             // Crear un nuevo evento
             $evento = Evento::create($validatedData);
-
-            return response()->json(['message' => 'Evento creado con éxito', 'data' => $evento], 201);
+            return response()->success($evento, 'Evento creado con éxito', 201);
         } catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'Error interno del servidor',
-                'code' => 500,
-                'data' => [],
-            ], 500);
+            return response()->error();
         }
     }
 }

@@ -11,15 +11,11 @@ class UsuarioEventoController extends Controller
     public function index()
     {
         try{
-            $users = UsuarioEvento::all();
-            return response()->json($users);
+            $users = UsuarioEvento::all()->makeHidden('password');
+            return response()->success($users);
         }catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'server_error',
-                'code' => 500,
-                'data' => []
-            ], 500);
+            return response()->error();
         }
     }
     public function store(Request $request)
@@ -33,17 +29,12 @@ class UsuarioEventoController extends Controller
             ]);
 
             $validatedData['password'] = Hash::make($validatedData['password']);
+            $usuario = UsuarioEvento::create($validatedData)->makeHidden('password');
 
-            $usuario = UsuarioEvento::create($validatedData);
-
-            return response()->json(['message' => 'Usuario creado con éxito', 'data' => $usuario], 201);
+            return response()->success($usuario, 'Usuario creado con éxito', 201);
         }catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'server_error',
-                'code' => 500,
-                'data' => []
-            ], 500);
+            return response()->error();
         }
     }
 }

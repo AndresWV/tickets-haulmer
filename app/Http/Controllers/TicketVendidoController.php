@@ -14,14 +14,10 @@ class TicketVendidoController extends Controller
             $tickets = TicketVendido::where('user_id','like',"%$idUser%")
                 ->orderBy('created_at','desc')
                 ->get();
-            return response()->json($tickets);
+            return response()->success($tickets);
         }catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'server_error',
-                'code' => 500,
-                'data' => []
-            ], 500);
+            return response()->error();
         }
     }
     public function store(Request $request)
@@ -35,15 +31,10 @@ class TicketVendidoController extends Controller
             ]);
 
             $ticketVendido = TicketVendido::create($validatedData);
-
-            return response()->json(['message' => 'Ticket vendido creado con exito', 'data' => $ticketVendido], 201);
+            return response()->success($ticketVendido, 'Ticket vendido creado con éxito', 201);
         }catch (Throwable $e) {
             error_log($e->getMessage());
-            return response([
-                'message' => 'server_error',
-                'code' => 500,
-                'data' => []
-            ], 500);
+            return response()->error();
         }
     }
 }
