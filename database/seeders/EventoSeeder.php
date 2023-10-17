@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Evento;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -252,8 +253,6 @@ class EventoSeeder extends Seeder
             ],
         ];
 
-        foreach ($eventosData as $eventoData) {
-            DB::table('eventos')->updateOrInsert(['id' => $eventoData['id']], $eventoData);
-        }
+        Evento::insert($eventosData);
     }
 }

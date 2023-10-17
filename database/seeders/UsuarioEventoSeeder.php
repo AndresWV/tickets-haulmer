@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\UsuarioEvento;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -47,6 +48,6 @@ class UsuarioEventoSeeder extends Seeder
             ],
         ];
 
-        DB::table('usuario_eventos')->insert($usuarios);
+        UsuarioEvento::insert($usuarios);
     }
 }

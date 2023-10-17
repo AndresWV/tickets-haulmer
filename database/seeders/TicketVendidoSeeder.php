@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TicketVendido;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,7 @@ class TicketVendidoSeeder extends Seeder
             $usuarioId = rand(1, 5);
             $precio = rand(10, 100);
 
-            DB::table('ticket_vendidos')->insert([
+            TicketVendido::create([
                 'user_id' => $usuarioId,
                 'event_id' => $eventoId,
                 'precio' => $precio,
