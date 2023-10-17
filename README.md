@@ -7,32 +7,26 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Servicio de gestión de tickets para eventos artísticos
+API REST para la compra de tickets para eventos artísticos. 
+## Levantamiento del proyecto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Entorno de desarrollo
+Primero es necesario instalar Docker y GIT en el equipo, para ello se puede seguir la guía de instalación de Docker en el siguiente enlace: https://docs.docker.com/engine/install/. 
+En caso de ser sistema Windows, primero es necesario instalar WSL2 y luego una distribución de Linux, de preferencia Ubuntu.  Luego
+es necesario seguir los siguientes pasos:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Execute
-
-* Initialize container: docker-compose up
-* Open tickets-haulmer-laravel.test-1 image
-* Run migrations: php artisan migrate
-* Run seeders: php artisan db:seed
+* Clonar el repositorio: `git clone https://github.com/AndresWV/tickets-haulmer.git`
+* Ingresar a la carpeta del proyecto: `cd tickets-haulmer`
+* Crear el archivo .env para almacenar las variables de entorno: `cp .env.example .env`
+* Instalar las dependencias de composer: `docker run --rm \
+  -u "$(id -u):$(id -g)" \
+  -v "$(pwd):/var/www/html" \
+  -w /var/www/html \
+  laravelsail/php81-composer:latest \
+  composer install --ignore-platform-reqs`
+* Levantar los contenedores de Docker: `./vendor/bin/sail up --build`. La opción `--build` es necesaria solo la primera vez que se levanta el proyecto. 
+* En una nueva terminal, generar la llave de la aplicación: `./vendor/bin/sail php artisan key:generate`
+* Ejecutar las migraciones: `./vendor/bin/sail php artisan migrate`
+* Ejecutar los seeders: `./vendor/bin/sail php artisan db:seed`
 

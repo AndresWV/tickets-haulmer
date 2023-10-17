@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f74d8fcb-12df-4a31-9c16-e465116ca39e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsuarioEventoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsuarioEventoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UsuarioEvento.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UsuarioEvento.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,18 +164,28 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "EP__opcionales",
+    "git-widget-placeholder": "wip-mejoras-proyecto",
+    "last_opened_file_path": "//wsl$/Ubuntu/home/leunam/projects/haulmer/tickets-haulmer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHPUnit.Main">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/laravel/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
   </component>
@@ -193,6 +201,7 @@
       <workItem from="1696318816147" duration="1095000" />
       <workItem from="1696320567547" duration="9900000" />
       <workItem from="1696331744435" duration="4000" />
+      <workItem from="1697508608916" duration="2668000" />
     </task>
     <servers />
   </component>
